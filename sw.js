@@ -1,14 +1,17 @@
 /* myGang Service Worker — offline-first caching */
+/* v8: supabase-js pinned to 2.112.3 (was floating @2 — a breaking release
+   inside the major would have hit all contractors at once, mid-shed, with no
+   rollback). CACHE bumped so devices purge the old floating copy. */
 /* v7: Cache version bump alongside v4.5.0 app deploy. Forces SW reactivation
    so all devices receive the wipe-prevention patches and DATA_VERSION-driven
    localStorage cleanup. Network-first for HTML retained from v6. Supabase API
    calls still bypassed (v5 fix retained — never serve fake-200 stubs for data). */
-const CACHE = 'mygang-v7';
+const CACHE = 'mygang-v8';
 const PRECACHE = [
   '/',
   'https://unpkg.com/react@18/umd/react.production.min.js',
   'https://unpkg.com/react-dom@18/umd/react-dom.production.min.js',
-  'https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2',
+  'https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2.112.3',
   'https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@500;600;700;800&family=DM+Sans:wght@400;500;600&family=JetBrains+Mono:wght@500;600&display=swap',
 ];
 
